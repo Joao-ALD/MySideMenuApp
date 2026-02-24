@@ -1,12 +1,28 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function App() {
+
+function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Bem-vindo à Tela Inicial!</Text>
     </View>
+  );
+}
+
+export default function App() {
+  const Drawer = createDrawerNavigator();
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+        {/* Aqui definimos o nome da rota e qual componente ela vai abrir */}
+        <Drawer.Screen name="Home" component={HomeScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
